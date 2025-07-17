@@ -1,0 +1,27 @@
+{
+	"name": "node-api-rest",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"scripts": {
+		"start": "nodemon app.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mcdchristian/Node-API-Rest.git"
+	},
+	"keywords": [],
+	"author": "Delormcd",
+	"license": "ISC",
+	"type": "module",
+	"bugs": {
+		"url": "https://github.com/mcdchristian/Node-API-Rest/issues"
+	},
+	"homepage": "https://github.com/mcdchristian/Node-API-Rest#readme",
+	"dependencies": {
+		"express.js": "^1.0.0"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.10"
+	}
+}
