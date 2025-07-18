@@ -19,9 +19,11 @@
 	},
 	"homepage": "https://github.com/mcdchristian/Node-API-Rest#readme",
 	"dependencies": {
-		"express.js": "^1.0.0"
+		"express.js": "^1.0.0",
+		"serve-favicon": "^2.5.1"
 	},
 	"devDependencies": {
+		"morgan": "^1.10.1",
 		"nodemon": "^3.1.10"
 	}
 }
