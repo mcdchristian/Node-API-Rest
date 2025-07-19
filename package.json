@@ -19,6 +19,7 @@
 	},
 	"homepage": "https://github.com/mcdchristian/Node-API-Rest#readme",
 	"dependencies": {
+		"body-parser": "^2.2.0",
 		"express.js": "^1.0.0",
 		"serve-favicon": "^2.5.1"
 	},
