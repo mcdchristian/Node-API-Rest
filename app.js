@@ -13,7 +13,7 @@ import pokemons from './mock-pokemon.js';
 // const __dirname = path.dirname(__filename);
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 // app.use(favicon(path.join(__dirname, 'favicon.ico')))
 app.use(morgan('dev')).use(bodyParser.json());
@@ -65,5 +65,16 @@ app.put('/api/pokemons/:id', (req, res) => {
 	pokemons[index] = pokemonUpdate;
 	const message = `le pokemon ${pokemonUpdate.name} a été mis à jour avec succès`;
 	res.json(success(message, pokemonUpdate));
+});
+
+app.delete('/api/pokemons/:id', (req, res) => {
+	const id = parseInt(req.params.id);
+	const index = pokemons.findIndex((pokemon) => pokemon.id === id);
+	if (index === -1) {
+		return res.status(404).json({ message: 'Pokemon not found' });
+	}
+	const deletedPokemon = pokemons.splice(index, 1)[0];
+	const message = `le pokemon ${deletedPokemon.name} a été supprimé avec succès`;
+	res.json(success(message, deletedPokemon));
 });
 app.listen(port, () => console.log(`server is running on port ${port}`));
