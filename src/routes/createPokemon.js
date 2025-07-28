@@ -14,3 +14,5 @@ export default (app) => {
 			});
 	});
 };
+// src/routes/findAllpokemons.js
+// This file defines a route to retrieve all Pokémon from the database.
