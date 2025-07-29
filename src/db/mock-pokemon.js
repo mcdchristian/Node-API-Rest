@@ -124,3 +124,6 @@ const pokemons = [
 export default pokemons;
 
 // module.exports = pokemons;
+//// src/routes/findAllpokemons.js
+// This file defines a route to retrieve all Pokémon from the database.
+// It uses Sequelize to interact with the database and returns a JSON response with the list of Pokémon
