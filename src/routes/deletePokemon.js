@@ -1,7 +1,8 @@
 import { Pokemon } from '../db/sequelize.js';
+import auth from '../auth/auth.js';
 
 export default (app) => {
-	app.delete('/api/pokemons/:id', (req, res) => {
+	app.delete('/api/pokemons/:id', auth, (req, res) => {
 		Pokemon.findByPk(req.params.id)
 			.then((pokemon) => {
 				if (pokemon === null) {

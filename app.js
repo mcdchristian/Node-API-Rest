@@ -1,5 +1,5 @@
 import express from 'express';
-import bodyParser from 'body-parser';
+// import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import { sequelize, initDb } from './src/db/sequelize.js';
 import findAllpokemons from './src/routes/findAllpokemons.js';
@@ -13,8 +13,8 @@ const app = express();
 const port = 3001;
 
 // app.use(favicon(path.join(__dirname, 'favicon.ico')))
-app.use(morgan('dev')).use(bodyParser.json());
-// app.use(express.json());
+app.use(morgan('dev')); /*.use(bodyParser.json());*/
+app.use(express.json());
 
 initDb();
 findAllpokemons(app);

@@ -1,8 +1,9 @@
 import { Pokemon } from '../db/sequelize.js';
 import { Op } from 'sequelize';
+import auth from '../auth/auth.js';
 
 export default (app) => {
-	app.get('/api/pokemons', (req, res) => {
+	app.get('/api/pokemons', auth, (req, res) => {
 		if (req.query.name) {
 			const name = req.query.name;
 			const limit = parseInt(req.query.limit) || 5;
