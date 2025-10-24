@@ -46,3 +46,18 @@ export default (app) => {
 };
 // src/routes/findAllpokemons.js
 // This file defines a route to retrieve all Pokémon from the database.
+
+//filter method example
+
+// filter method exmple
+
+// const filteredPrices = prices.filter((price) => price > 6);
+// console.log(filteredPrices);
+
+// const fruits = ['pomme', 'banane', 'poire', 'pomme'];
+// const pommes = fruits.filter((fruit, index, arr) => {
+// 	console.log(`Index: ${index}, Tableau: ${arr}`);
+// 	return fruit === 'pomme';
+// });
+
+// console.log(pommes);
