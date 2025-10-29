@@ -25,3 +25,16 @@ export default (app) => {
 			});
 	});
 };
+
+// filter method exmple
+
+// const filteredPrices = prices.filter((price) => price > 6);
+// console.log(filteredPrices);
+
+// const fruits = ['pomme', 'banane', 'poire', 'pomme'];
+// const pommes = fruits.filter((fruit, index, arr) => {
+// 	console.log(`Index: ${index}, Tableau: ${arr}`);
+// 	return fruit === 'pomme';
+// });
+
+// console.log(pommes);
