@@ -106,3 +106,11 @@ export default (sequelize, DataTypes) => {
 		}
 	);
 };
+// const data = 'New York;10.99;2000';
+// const tranformData = data.split(';');
+// // tranformData[1] = +tranformData[1];
+// console.log(tranformData);
+
+// const namefragment = ["Del'or", 'Mutaliko'];
+// const fullName = namefragment.join(' ');
+// console.log(fullName);
