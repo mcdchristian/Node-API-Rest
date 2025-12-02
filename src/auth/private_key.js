@@ -10,3 +10,16 @@ export default 'CUSTOM_PRIVATE_KEY';
 
 // const addRandom = () => 1 + 2;
 // console.log(addRandom());
+
+// Example of object methods and this keyword basics js
+
+// const person = {
+// 	name: "Del'or",
+// 	age: 23,
+// 	greet: function () {
+// 		console.log('Hi, I am ' + this.name);
+// 	},
+// };
+
+// // console.log(person);
+// person.greet();
