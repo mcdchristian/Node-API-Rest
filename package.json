@@ -20,7 +20,7 @@
 	"homepage": "https://github.com/mcdchristian/Node-API-Rest#readme",
 	"dependencies": {
 		"bcrypt": "^6.0.0",
-		"body-parser": "^2.2.0",
+		"body-parser": "^2.2.1",
 		"express.js": "^1.0.0",
 		"jsonwebtoken": "^9.0.2",
 		"mariadb": "^3.4.4",
