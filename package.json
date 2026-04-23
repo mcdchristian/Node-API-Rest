@@ -24,7 +24,7 @@
 		"express.js": "^1.0.0",
 		"jsonwebtoken": "^9.0.2",
 		"mariadb": "^3.4.4",
-		"sequelize": "^6.37.7",
+		"sequelize": "^6.37.8",
 		"serve-favicon": "^2.5.1"
 	},
 	"devDependencies": {
