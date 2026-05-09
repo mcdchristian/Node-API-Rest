@@ -14,21 +14,18 @@ export default (app) => {
 				return res.status(400).json({ message });
 			}
 
-			return /*Pokemon.findAll*/ Pokemon.findAndCountAll({
+			return Pokemon.findAndCountAll({
 				where: {
 					name: {
-						//"name" est la propriété du modèle Pokemon
-						// [Op.eq]: name, // "name" est le critère de la recherche
+
 						[Op.like]: `%${name}%`,
 					},
 				},
 				order: ['name'],
-				limit: /*5*/ limit,
-			}).then((/*pokemons*/ { count, rows }) => {
-				const message = `Il y a ${
-					/*pokemons.length*/ count
-				} pokémons qui correspondent au terme de la recherche ${name}.`;
-				res.json({ message, data: /*pokemons*/ rows });
+				limit: limit,
+			}).then(({ count, rows }) => {
+				const message = `Il y a ${count} pokémons qui correspondent au terme de la recherche ${name}.`;
+				res.json({ message, data: rows });
 			});
 		} else {
 			Pokemon.findAll({ order: ['name'] })
@@ -44,20 +41,4 @@ export default (app) => {
 		}
 	});
 };
-// src/routes/findAllpokemons.js
-// This file defines a route to retrieve all Pokémon from the database.
 
-//filter method example
-
-// filter method exmple
-
-// const filteredPrices = prices.filter((price) => price > 6);
-// console.log(filteredPrices);
-
-// const fruits = ['pomme', 'banane', 'poire', 'pomme'];
-// const pommes = fruits.filter((fruit, index, arr) => {
-// 	console.log(`Index: ${index}, Tableau: ${arr}`);
-// 	return fruit === 'pomme';
-// });
-
-// console.log(pommes);

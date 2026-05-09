@@ -35,40 +35,4 @@ export default (app) => {
 	});
 };
 
-// export default (sequelize, DataTypes) => {
-// 	return sequelize.define('User', {
-// 		id: {
-// 			type: DataTypes.INTEGER,
-// 			primaryKey: true,
-// 			autoIncrement: true,
-// 		},
-// 		username: {
-// 			type: DataTypes.STRING,
-// 			unique: { msg: 'le nom est déjà pris' },
-// 		},
-// 		password: {
-// 			type: DataTypes.STRING,
-// 		},
-// 	});
-// };
 
-// refreshing js basics object and array spread operator/rest operator
-// const copiedPerson = { ...person };
-// console.log(copiedPerson);
-
-// const hobbies = ['Sports', 'Cooking'];
-// // for (const hobby of hobbies) {
-// // 	console.log(hobby);
-// // }
-// // console.log(hobbies.map((hobby) => 'Hobby: ' + hobby));
-// // console.log(hobbies);
-
-// // const copiedArray = hobbies.slice();
-// const copiedArray = [...hobbies];
-// console.log(copiedArray);
-
-// const toArray = (...args) => {
-// 	return args;
-// };
-
-// console.log(toArray(1, 2, 3, 4));
