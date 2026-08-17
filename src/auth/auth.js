@@ -1,28 +1,50 @@
 import jwt from 'jsonwebtoken';
 import privateKey from '../auth/private_key.js';
 
+/**
+ * Authentication Middleware
+ * Verifies JWT token from Authorization header
+ */
 export default (req, res, next) => {
-	const authorizationHeader = req.headers.authorization;
+  const authorizationHeader = req.headers.authorization;
 
-	if (!authorizationHeader) {
-		const message = `Vous n'avez pas fourni de jeton d'authentification. Ajoutez-en un dans l'en-tête de la requête.`;
-		return res.status(401).json({ message });
-	}
+  if (!authorizationHeader) {
+    return res.status(401).json({
+      message: "Jeton d'authentification manquant. Fourni un token dans l'en-tête Authorization.",
+    });
+  }
 
-	const token = authorizationHeader.split(' ')[1];
-	jwt.verify(token, privateKey, (error, decodedToken) => {
-		if (error) {
-			const message = `L'utilisateur n'est pas autorisé à accèder à cette ressource.`;
-			return res.status(401).json({ message, data: error });
-		}
+  // Extract token from "Bearer <token>" format
+  const parts = authorizationHeader.split(' ');
+  if (parts.length !== 2 || parts[0] !== 'Bearer') {
+    return res.status(401).json({
+      message: 'Format d\'authentification invalide. Utilisez "Bearer <token>".',
+    });
+  }
 
-		const userId = decodedToken.userId;
-		if (req.body.userId && req.body.userId !== userId) {
-			const message = `L'identifiant de l'utilisateur est invalide.`;
-			return res.status(401).json({ message });
-		} else {
-			next();
-		}
-	});
+  const token = parts[1];
+
+  try {
+    const decodedToken = jwt.verify(token, privateKey);
+    req.user = decodedToken;
+
+    // Optionally validate userId in body matches token userId
+    if (req.body.userId && req.body.userId !== decodedToken.userId) {
+      return res.status(403).json({
+        message: "Vous n'êtes pas autorisé à accéder à cette ressource.",
+      });
+    }
+
+    next();
+  } catch (error) {
+    let message = 'Jeton invalide ou expiré.';
+
+    if (error.name === 'TokenExpiredError') {
+      message = 'Votre session a expiré. Veuillez vous reconnecter.';
+    } else if (error.name === 'JsonWebTokenError') {
+      message = 'Jeton malformé ou invalide.';
+    }
+
+    return res.status(401).json({ message });
+  }
 };
-
