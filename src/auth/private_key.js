@@ -1,6 +1,11 @@
-export default 'CUSTOM_PRIVATE_KEY';
+import dotenv from 'dotenv';
 
-// const router = express.Router();
-// router.get('/', (req, res, next) => {
-// 	res.send('<h1>Hello from Express!</h1>');
-// });
+dotenv.config();
+
+const privateKey = process.env.JWT_SECRET_KEY || 'fallback_secret_key';
+
+if (!process.env.JWT_SECRET_KEY && process.env.NODE_ENV === 'production') {
+  throw new Error('JWT_SECRET_KEY must be defined in production environment!');
+}
+
+export default privateKey;
